@@ -15,7 +15,7 @@ def index():
         # Initialize OpenAI client with the provided API key
         client = OpenAI(api_key=api_key)
 
-        system = '''You are an expert IELTS Writing examiner with years of experience. Your task is to evaluate IELTS Writing essays and provide band scores for the four criteria: Task Response (TR), Coherence and Cohesion (CC), Lexical Resource (LR), and Grammatical Range and Accuracy (GRA).'''
+        system = '''You are an expert IELTS Writing examiner with years of experience. Your task is to evaluate IELTS Writing essays and provide band scores for the four criteria: Task Response (TR), Coherence and Cohesion (CC), Lexical Resource (LR), and Grammatical Range and Accuracy (GRA). Strictly follow the band desciptors to give the accurate estimated band score for each criterion. Don't hesitate to penalize any mistakes related to Task Response and Coherence & Cohesion criteria.'''
 
         # Make the request to OpenAI API
         try:
