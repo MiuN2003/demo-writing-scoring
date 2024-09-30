@@ -4,9 +4,6 @@ import google.generativeai as genai
 
 app = Flask(__name__)
 
-# Configure Google Gemini API
-genai.configure(api_key='AIzaSyCAO8ochwEdSHZeDxpGodh6MIMo9G5HA7w')
-
 # Define the homepage route
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -38,6 +35,8 @@ def index():
                 result = f"Error: {str(e)}"
 
         elif model_choice == "gemini":
+            # Configure Google Gemini API
+            genai.configure(api_key=api_key)
             # Set up Gemini model configuration
             generation_config = {
               "temperature": 0,
