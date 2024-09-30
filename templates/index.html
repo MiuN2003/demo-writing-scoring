@@ -28,7 +28,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        input[type="text"], input[type="submit"] {
+        input[type="text"], input[type="submit"], select {
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -65,6 +65,12 @@
 
             <label for="essay">Essay:</label>
             <textarea id="essay" name="essay" required></textarea>
+
+            <label for="model_choice">Choose Model:</label>
+            <select id="model_choice" name="model_choice" required>
+                <option value="openai">OpenAI (GPT-4)</option>
+                <option value="gemini">Google Gemini</option>
+            </select>
 
             <input type="submit" value="Evaluate Essay">
         </form>
