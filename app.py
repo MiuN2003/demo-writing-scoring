@@ -51,19 +51,19 @@ def index():
               model_name="tunedModels/datatraingeminiv2-gq8pcv0xyvi7",
               generation_config=generation_config,
             )
-
+            chat_session = model.start_chat(
+            history=[
+            ]
+            )
             system = 'You are an expert IELTS Writing examiner with years of experience. Your task is to evaluate IELTS Writing essays and provide band scores for the four criteria: Task Response (TR), Coherence and Cohesion (CC), Lexical Resource (LR), and Grammatical Range and Accuracy (GRA).'
 
             # Make the request to Gemini API
             try:
-                chat_session = model.start_chat(
-                  history=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": f"""Please rely on the criteria and scoring method of an IELTS writing test to give a predicted score for my writing.
-                    Prompt: {prompt}
-                    Essay: {essay}"""}]
-                )
-                result = chat_session.generate().message  # Assume it returns a 'message' field
+                result = chat_session.send_message(f"""
+                System Prompt: {system}
+                Prompt: {prompt}
+                Original Essay: {essay}
+                """).text
             except Exception as e:
                 result = f"Error: {str(e)}"
 
