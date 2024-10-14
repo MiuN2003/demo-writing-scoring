@@ -23,7 +23,8 @@ def index():
             # Make the request to OpenAI API
             try:
                 completion = client.chat.completions.create(
-                model="ft:gpt-4o-2024-08-06:youpass::ABIsYLJc",
+                # model="ft:gpt-4o-2024-08-06:youpass::ABIsYLJc",
+                model="ft:gpt-4o-2024-08-06:youpass::AI7P8Gix",
                 messages=[
                     {"role": "system", "content": system},
                     {"role": "user", "content": f"""Please rely on the criteria and scoring method of an IELTS writing test to give a predicted score for my writing.
